@@ -75,7 +75,7 @@ texture = ExtResource("3_6gyai")
 position = Vector2(890, 377)
 scale = Vector2(1, 0.999999)
 script = ExtResource("5_j2551")
-sceneName = "NextLevelScreen"
+scene_name = "NextLevelScreen"
 
 [node name="Area2DRespawn" parent="." instance=ExtResource("5_5eq56")]
 position = Vector2(-1017, 574)
