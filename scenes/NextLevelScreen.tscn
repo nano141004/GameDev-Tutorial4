@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bksrv0x66uflu"]
+
+[ext_resource type="Texture2D" uid="uid://bl0u0qar3itlh" path="res://assets/not_done.jpg" id="1_4gf7c"]
+[ext_resource type="Script" path="res://scenes/ButtonNextLevel.gd" id="2_1l7qj"]
+
+[node name="NextLevel" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(586, 343)
+scale = Vector2(3.66071, 4.69333)
+texture = ExtResource("1_4gf7c")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 668.0
+offset_top = 416.0
+offset_right = 1088.0
+offset_bottom = 552.0
+theme_override_font_sizes/font_size = 36
+text = "Continue to Next Level?"
+script = ExtResource("2_1l7qj")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

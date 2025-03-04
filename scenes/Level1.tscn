@@ -1,10 +1,92 @@
-[gd_scene load_steps=2 format=3 uid="uid://yqmk0vpvnyxr"]
+[gd_scene load_steps=11 format=4 uid="uid://yqmk0vpvnyxr"]
 
 [ext_resource type="PackedScene" uid="uid://bc2fujtl13g10" path="res://scenes/Player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cluh2ekc38ktx" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_dirt.png" id="2_btt7p"]
+[ext_resource type="Texture2D" uid="uid://b7rncqp0d3w6n" path="res://assets/kenney_platformerpack/PNG/Items/flagBlue1.png" id="3_6gyai"]
+[ext_resource type="PackedScene" uid="uid://dn1ss2jsv6o1q" path="res://scenes/Area2DWin.tscn" id="4_ri477"]
+[ext_resource type="PackedScene" uid="uid://8m26ldldtt8b" path="res://scenes/Area2DRespawn.tscn" id="5_5eq56"]
+[ext_resource type="Script" path="res://scenes/NextLevelArea.gd" id="5_j2551"]
+[ext_resource type="Script" path="res://scenes/Spawner.gd" id="6_1mrbs"]
+[ext_resource type="PackedScene" uid="uid://cywvx60co7n8b" path="res://scenes/FallingFish.tscn" id="7_0412u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2880i"]
+texture = ExtResource("2_btt7p")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, 9, 54, -40, 36, -64, -9)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, -64, -64, -64, 64, -9, 54, 40, 36, 64, -9)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -7, 16, -64, -19)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, -22, 9, 16, -64, 64)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -78, 63)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, -64, -64, -64, 9, 64, 10)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, -64, -64, -64, 9, 64, 10)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, -64, -64, -64, 9, 64, 10)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, -64, -64, -64, 9, 64, 10)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(2, 2, -64, -64, -64, 64, 64, 64)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, 2, 64, -64, 64, 64, -64, 64)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_vr0p3"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_2880i")
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1")]
-position = Vector2(445, 209)
+position = Vector2(-536, 337)
 collision_layer = 3
 collision_mask = 3
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAYAAAABAAEAAAABAAYAAAABAAEAAAACAAYAAAABAAEAAAADAAYAAAABAAEAAAADAAUAAAAFAAEAAAAEAAUAAAADAAEAAAAFAAUAAAADAAEAAAAHAAUAAAADAAAAAAAIAAUAAAAEAAAAAAAJAAUAAAABAAEAAAAKAAUAAAABAAEAAAALAAUAAAAEAAEAAAAMAAYAAAAEAAEAAAANAAcAAAADAAAAAAAOAAcAAAAEAAAAAAALAAYAAAACAAAAAAALAAcAAAACAAAAAAAMAAcAAAACAAAAAAD+/wYAAAAEAAAAAAD3/wYAAAAGAAEAAAD4/wYAAAAGAAEAAAD5/wYAAAAGAAEAAAD6/wYAAAAGAAEAAAD9/wYAAAADAAAAAAA=")
+tile_set = SubResource("TileSet_vr0p3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(924, 415)
+scale = Vector2(0.539063, 0.546875)
+texture = ExtResource("3_6gyai")
+
+[node name="Area2DWin" parent="." instance=ExtResource("4_ri477")]
+position = Vector2(890, 377)
+scale = Vector2(1, 0.999999)
+script = ExtResource("5_j2551")
+sceneName = "NextLevelScreen"
+
+[node name="Area2DRespawn" parent="." instance=ExtResource("5_5eq56")]
+position = Vector2(-1017, 574)
+scale = Vector2(2.87643, 0.815254)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(555, -308)
+script = ExtResource("6_1mrbs")
+obstacle = ExtResource("7_0412u")
+
+[node name="Spawner2" type="Node2D" parent="."]
+position = Vector2(-192, -186)
+script = ExtResource("6_1mrbs")
+obstacle = ExtResource("7_0412u")
