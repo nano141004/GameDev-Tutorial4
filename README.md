@@ -1,0 +1,7 @@
+## Penjelasan Implementasi Latihan Mandiri
+
+Pembuatan scene Level2 untuk menampung environment level 2. Pembuatan scene Level2 mirip seperti pada tutorial untuk merancang Level1. Dimulai dari pembuatan scene Level2, kemudian menambahkan node Player(menggunakan Player dari Level1). Lalu membuat tilemap dengan sprite yang berbeda, lalu "mewarnai"/merancang platform dengan tilemap yang telah dibuat. Kemudian membuat area di bagian bawah platform yang jika player jatuh dan masuk ke area tersebut akan respawn ke awal dari level tersebut. Kemudian juga membuat area yang mana jika player sampai ke area tersebut maka player "menang" dan masuk ke scene lain(WinScreen). Ada juga obstacle yang dispawn oleh spawner secara random, yang berbentuk spike, dan jika menyentuh body player, player akan kalah(masuk ke LoseScreen). 
+
+Beberapa "*polishing*" yang dikerjakan:
+- Membuat Scene baru NextLevelScreen, yang mana merupakan scene transisi dari Level1 ke Level2. Jadi jika player berhasil mencapai Area "menang"(Area2DWin) pada Level1, player akan berpindah scene ke NextLevelScreen.
+- Menambahkan button ButtonTryAgain pada LoseScreen, yang mana jika dipencet player akan respawn ke awal Level1(jika player kalah dari Level2 juga akan respawn ke Level1). Kemudian ada juga button ButtonNextLevel pada NextLevelScreen, yang mana jika dipencet player akan masuk ke scene Level2. 
